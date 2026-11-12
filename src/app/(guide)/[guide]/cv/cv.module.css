@@ -1,0 +1,138 @@
+.page {
+  min-height: 100vh;
+  background: var(--surface);
+  padding: 24px 16px 64px;
+}
+
+.toolbar {
+  max-width: 860px;
+  margin: 0 auto 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.sheet {
+  max-width: 860px;
+  margin-inline: auto;
+  background: var(--bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: clamp(24px, 5vw, 56px);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding-bottom: 24px;
+  border-bottom: 3px solid var(--primary);
+}
+
+.monogram {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--on-primary);
+  font-family: var(--font-serif);
+  font-size: 2rem;
+}
+
+.docType {
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+  font-weight: 700;
+}
+
+.header h1 {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+}
+
+.role {
+  color: var(--muted);
+}
+
+.columns {
+  display: grid;
+  gap: 32px;
+  margin-top: 28px;
+}
+
+.columns h2 {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.columns section + section {
+  margin-top: 24px;
+}
+
+.side ul,
+.creds,
+.timeline {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.side p,
+.side li {
+  font-size: 0.92rem;
+}
+
+.main p + p {
+  margin-top: 10px;
+}
+
+.timeline li,
+.creds li {
+  display: flex;
+  flex-direction: column;
+  padding-left: 14px;
+  border-left: 2px solid var(--border);
+}
+
+.timeline span,
+.creds span {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.years {
+  font-weight: 600;
+  color: var(--accent-ink) !important;
+}
+
+@media (min-width: 720px) {
+  .columns {
+    grid-template-columns: 1fr 2.2fr;
+  }
+}
+
+@media print {
+  .page {
+    background: #fff;
+    padding: 0;
+  }
+  .sheet {
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    max-width: none;
+  }
+  .columns {
+    grid-template-columns: 1fr 2.2fr;
+  }
+}

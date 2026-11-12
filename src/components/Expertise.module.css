@@ -1,0 +1,233 @@
+/* Split layout: title column left, languages + categories stacked on the right. */
+.layout {
+  display: grid;
+  gap: 8px clamp(40px, 6vw, 88px);
+}
+
+.side :global(.section-head) {
+  margin-bottom: 32px;
+}
+
+.main {
+  min-width: 0;
+}
+
+@media (min-width: 1000px) {
+  .layout {
+    grid-template-columns: 4fr 8fr;
+    align-items: start;
+  }
+  .side {
+    position: sticky;
+    top: calc(var(--header-h-condensed) + 40px);
+  }
+  .side :global(.section-head) {
+    margin-bottom: 0;
+  }
+}
+
+.subhead {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.languages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 12px;
+  margin-bottom: clamp(32px, 5vw, 48px);
+}
+
+.lang {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: var(--radius-md);
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+.langCode {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--primary);
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.langBody {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.langBody span {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  /* Transform is driven by <Tilt> (cursor tilt + lift); only the shadow is CSS. */
+  transition: box-shadow var(--dur-med) var(--ease-in-out);
+}
+
+.cell {
+  display: flex;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.cardMedia {
+  position: relative;
+  aspect-ratio: 16 / 10;
+}
+
+.cardImage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.cardMedia img {
+  transition:
+    transform 900ms var(--ease-in-out),
+    filter 600ms var(--ease-in-out) !important;
+}
+
+.card:hover .cardMedia img {
+  transform: scale(1.07) !important;
+}
+
+.cardBody {
+  padding: 22px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.cardBody h3 {
+  font-size: 1.35rem;
+}
+
+.cardBody p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+.more {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  padding: 6px 0;
+  border: 0;
+  background: none;
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.more svg {
+  transition: transform var(--dur-fast) var(--ease-in-out);
+}
+
+.more:hover svg {
+  transform: translateX(4px);
+}
+
+/* Modal */
+.modal {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.modalImages {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.modalImages figure {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.modalDesc {
+  font-size: 1.05rem;
+}
+
+.modalSub {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-ink);
+}
+
+.activityList {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 8px 20px;
+}
+
+.activityList li {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.activityList svg {
+  flex-shrink: 0;
+  margin-top: 4px;
+  color: var(--accent-ink);
+}
+
+.modal :global(.btn) {
+  align-self: flex-start;
+}
+
+/* After the base .languages rule so it wins: languages as a tidy 2×2 next to the title. */
+@media (min-width: 1000px) {
+  .languages {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

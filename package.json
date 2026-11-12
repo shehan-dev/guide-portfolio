@@ -1,0 +1,36 @@
+{
+  "name": "guide-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "seed": "sanity exec scripts/seed-sanity.ts --with-user-token",
+    "migrate:english": "sanity exec scripts/migrate-english-only.ts --with-user-token",
+    "migrate:english:dry": "sanity exec scripts/migrate-english-only.ts --with-user-token",
+    "content:dashes": "sanity exec scripts/remove-em-dashes.ts --with-user-token",
+    "content:dashes:dry": "sanity exec scripts/remove-em-dashes.ts --with-user-token",
+    "sanity:login": "sanity login"
+  },
+  "dependencies": {
+    "@sanity/client": "^8.9.0",
+    "@sanity/image-url": "^2.1.1",
+    "@sanity/vision": "^5.31.2",
+    "lenis": "^1.3.26",
+    "motion": "^14.0.0",
+    "next": "^16.3.8",
+    "next-sanity": "^13.3.4",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "sanity": "^5.31.2",
+    "styled-components": "^6.5.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5.9.3"
+  }
+}

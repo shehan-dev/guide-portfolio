@@ -1,0 +1,121 @@
+/* Split: the invitation on the left, one booking panel on the right. */
+.layout {
+  display: grid;
+  gap: 32px clamp(40px, 6vw, 88px);
+  align-items: center;
+}
+
+.head {
+  margin-bottom: 0;
+}
+
+.head :global(.section-title) {
+  font-size: clamp(2.4rem, 4.8vw, 3.6rem);
+}
+
+/* Booking panel: flat colour, no gradient. */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: clamp(24px, 3.5vw, 40px);
+  border-radius: var(--radius-md);
+  color: #fff;
+  background: #17784b;
+}
+
+.waRow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.waBadge {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+}
+
+.waText {
+  min-width: 0;
+}
+
+.waLabel {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.waNumber {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.response {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.waButton {
+  --btn-bg: #fff;
+  --btn-fg: #17784b;
+  align-self: flex-start;
+}
+
+.waMagnet {
+  align-self: flex-start;
+}
+
+.waButton:hover {
+  --btn-bg: #f1f8f3;
+}
+
+/* Secondary options, separated from WhatsApp by a light rule. */
+.alt {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 32px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.altLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  opacity: 0.92;
+  overflow-wrap: anywhere;
+}
+
+.altLink strong {
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.altLink:hover {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (min-width: 1000px) {
+  .layout {
+    grid-template-columns: 5fr 6fr;
+  }
+}

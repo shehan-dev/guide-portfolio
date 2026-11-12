@@ -1,0 +1,182 @@
+.filters {
+  justify-content: flex-end;
+}
+
+.masonry {
+  list-style: none;
+  columns: 2;
+  column-gap: 12px;
+}
+
+.item {
+  break-inside: avoid;
+  margin-bottom: 12px;
+}
+
+.tile {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: zoom-in;
+  background: var(--surface-2);
+}
+
+.tile img {
+  transition:
+    transform 800ms var(--ease-in-out),
+    filter 600ms var(--ease-in-out) !important;
+}
+
+.tile:hover img,
+.tile:focus-visible img {
+  transform: scale(1.06) !important;
+}
+
+.caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 36px 14px 12px;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.72));
+  color: #fff;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--dur-med) var(--ease-in-out), transform var(--dur-med) var(--ease-in-out);
+}
+
+.caption strong {
+  font-size: 0.92rem;
+}
+
+.caption span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+  opacity: 0.85;
+}
+
+.tile:hover .caption,
+.tile:focus-visible .caption {
+  opacity: 1;
+  transform: none;
+}
+
+/* Touch devices have no hover — keep captions visible. */
+@media (hover: none) {
+  .caption {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.protected {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Lightbox */
+.lightbox {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.stage {
+  position: relative;
+  height: min(74vh, 820px);
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+.stageImage {
+  position: absolute;
+  inset: 0;
+  cursor: grab;
+  touch-action: pan-y;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color var(--dur-fast), transform var(--dur-fast) var(--ease-in-out);
+}
+
+.nav:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: scale(1.06);
+}
+
+.prev {
+  left: 12px;
+}
+
+.next {
+  right: 12px;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 8px 20px;
+  padding: 0 6px 4px;
+}
+
+.metaTitle {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+}
+
+.metaSub {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.counter {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.credit {
+  opacity: 0.7;
+}
+
+@media (min-width: 760px) {
+  .masonry {
+    columns: 3;
+    column-gap: 16px;
+  }
+  .item {
+    margin-bottom: 16px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .masonry {
+    columns: 4;
+  }
+}

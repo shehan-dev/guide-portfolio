@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "motion-ui": {
+      "source": "majinmagros/magros.ai-skills",
+      "sourceType": "github",
+      "skillPath": "skills/motion-ui/SKILL.md",
+      "computedHash": "26d17ac9eb0d1746f49dfb5dfc2cceeacebad5bf3146a4a8fc72a4d29ff85dd3"
+    }
+  }
+}
